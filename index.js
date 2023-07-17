@@ -7,7 +7,11 @@ function showAddCardPop(id) {
     popup1.style.display = "block";
     cardId = id;
 
+    const cardTitle = document.getElementById("card-title");
+    cardTitle.style.display= "none";
+
     const cardContainer = document.getElementById("card-container");
+    cardContainer.style.justifyContent = "space-between"
   if (!isBlur) {
     cardContainer.classList.add("blur");
     isBlur = true;
@@ -171,6 +175,7 @@ function closeAddCardPopup() {
   const cardcontainer = document.getElementById("card-container");
    const cardTitle = document.getElementById("card-title");
    cardTitle.innerHTML= value;
+    cardTitle.style.display = "block";
 
     const cards = document.querySelectorAll('.card')
     const cardShow = document.getElementById(`card_${id}`);

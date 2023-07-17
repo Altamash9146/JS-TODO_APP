@@ -70,14 +70,12 @@ a{
 #card-title{
     color: blue;
     text-align: center;
-    position: relative;
     top: 1.5rem;
     
 }
 
 #card-container{
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap; 
     margin-left: 65px;
     color: blue;
@@ -143,7 +141,7 @@ position: absolute; top: 25px;
 @media screen and (min-width:240px) and (max-width:600px) {
 
     #add-new-list-border,#add-new-item-border{
-        position: absolute; left: 4%; top: 20%;
+        position: absolute;
 
     }
 
