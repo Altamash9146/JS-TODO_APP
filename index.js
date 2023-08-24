@@ -67,7 +67,7 @@ function closeAddCardPopup() {
         <li class="content ${content.done ? "checked done" : ""}" id="content_${content.id}">
            <span>${content.contentText}</span>
            <button class="toggle-button" onclick="toggleTask(${content.id}, ${data[i].id})" ${content.done ? "style='display:none;'" : ""}>
-              Mark as Done
+              Marked Done
            </button>
         </li>`;
         
