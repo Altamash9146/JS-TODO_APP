@@ -63,13 +63,46 @@ function closeAddCardPopup() {
       let child= ""
       for(let j=0; j<data[i].content.length; j++){
         const content = data[i].content[j]
-        child+=`<li class =" content ${content.done ? "checked": ""}" id="content_${content.id}" onclick="doneTask(${content.id},${data[i].id})">${content.contentText}</li>`
+        child += `
+              <li class="content ${content.done ? "checked done" : ""}" id="content_${content.id}">
+                <span>${content.contentText}</span>
+                <button class="toggle-button" onclick="toggleTask(${content.id}, ${data[i].id})" ${content.done ? "style='display:none;'" : ""}>
+                    Mark as Done
+                </button>
+              </li>`;
+
+
+        
       }
       ulElement.innerHTML= child
     }
   }
 
-
+  function toggleTask(contentId, cardId) {
+    const contentElement = document.getElementById(`content_${contentId}`);
+    const buttonElement = contentElement.querySelector(".toggle-button");
+    
+    contentElement.classList.toggle("checked");
+    contentElement.classList.toggle("done"); // Toggle the done class
+    
+    toggleButton(buttonElement); // Show/hide button
+    
+    for (let i = 0; i < data.length; i++) {
+       if (data[i].id == cardId) {
+          const content = data[i].content.find(item => item.id === contentId);
+          if (content) {
+             content.done = !content.done;
+          }
+       }
+    }
+ }
+ 
+ function toggleButton(buttonElement) {
+    buttonElement.style.display = buttonElement.style.display === "none" ? "inline-block" : "none";
+ }
+ 
+ 
+ 
 
 
   function renderCards() {
@@ -124,7 +157,12 @@ function closeAddCardPopup() {
       document.getElementById("input-of-add-item").value = "";
       const liNode = document.createElement("li");
       const listId= new Date().getTime().toString()
-      liNode.innerHTML = contentText;
+      liNode.innerHTML = `
+      <span>${contentText}</span>
+      <button class="toggle-button" onclick="toggleTask(${listId}, ${cardId})">
+         Mark As Done
+      </button>`;
+   
       liNode.className ="content";
       liNode.id = `content_${listId}`;
       liNode.onclick= function (){

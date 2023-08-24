@@ -10,38 +10,52 @@ a{
     font-size: 25px;
     color: white;
     font-style: italic;
+    position: absolute;
+    top: 45px;
+    left: 88px;
 }
 #first-button-set{
     float: right;
+    position: relative;
+    top: 40px;
+    right: 60px;
 }
 
 #addtask-plus{
-    background-image:url(./Plus_symbol.svg.png);
-    background-size: contain; position: relative; top: 7px;
-    height: 25px; width: 25px;
+    background-image: url(./Plus_symbol.svg.png);
+    background-size: contain;
+    position: relative;
+    top: 7px;
+    height: 26px;
+    width: 25px;
     background-repeat: no-repeat;
     background-color: white;
 }
 
 #addtask{
-    background-color:black;
+    background-color: black;
     color: white;
-    font-size: 15px;
+    font-size: 18px;
     font-style: italic;
 }
 #back{
     display: none;
-    position: absolute; left: 8px; top:12px;
+    position: absolute;
+    top: 30px;
+    left: 20px;
     background-color: black;
     color: white;
 }
 
 #add-new-list-border,#add-new-item-border{
     border: 2px solid black;
-    background-color:cyan;
-    height: 100px; width: 300px;
-    border-radius: 5px;
-    position: absolute; top: 50%; left:50%;
+    background-color: grey;
+    height: 100px;
+    width: 300px;
+    border-radius: 19px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
     padding: 25px;
     display: none;
     z-index: 1;
@@ -70,27 +84,30 @@ a{
 #card-title{
     color: blue;
     text-align: center;
-    top: 1.5rem;
+    top: 4.5rem;
+    position: relative;
     
 }
 
 #card-container{
     display: flex;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     margin-left: 65px;
     color: blue;
+    top: 77px;
+    position: relative;
 }
 
 .card{
-    margin: 20px;
-    position: relative;
-    top: 30px; 
-    background-color: white;
-    border-radius: 15px;
-    width: 250px;
-    height: 250px;
-    text-align: center; 
-    overflow-y: scroll;
+     margin-bottom: 20px;
+     position: relative;
+     top: 30px;
+     background-color: white;
+     border-radius: 15px;
+     width: 250px;
+     height: 250px;
+     text-align: center;
+     overflow-y: scroll;
 }
 
 
@@ -115,9 +132,18 @@ a{
         height: 20px; width:20px;
         position: relative; left: 180px;
     }
-.checked {
+/* .checked {
     text-decoration: line-through;
-}
+} */
+
+.toggle-button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    background-color: #ccc;
+    border: none;
+    cursor: pointer;
+ }
+ 
 
 #page2-card-container{
     display: flex;
@@ -136,9 +162,17 @@ position: absolute; top: 25px;
     filter: blur(5px);
   }
 
-
-
 @media screen and (min-width:240px) and (max-width:600px) {
+
+    #first-button-set{
+        position: absolute;
+    }
+
+    #h1{
+        position: relative;
+        left: -71px;
+        top: -10px;
+    }
 
     #add-new-list-border,#add-new-item-border{
         position: fixed;
@@ -149,7 +183,7 @@ position: absolute; top: 25px;
         align-items: center;
         flex-wrap:nowrap;
         flex-direction: column; 
+        margin: auto;
     }
-
     
  }
