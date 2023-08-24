@@ -82,18 +82,21 @@ a{
 
 
 #card-title{
-    color: blue;
+    color: white;
     text-align: center;
     top: 4.5rem;
+    margin-left: auto;
+    margin-right: auto;
     position: relative;
-    
+    font-weight: bold;  
+    font-size: 25px;
 }
 
 #card-container{
     display: flex;
     flex-wrap: wrap;
     margin-left: 65px;
-    color: blue;
+    color: black;
     top: 77px;
     position: relative;
 }
@@ -132,16 +135,19 @@ a{
         height: 20px; width:20px;
         position: relative; left: 180px;
     }
-/* .checked {
+
+.checked {
     text-decoration: line-through;
-} */
+}
 
 .toggle-button {
+    margin-top: 5px;
     margin-left: 10px;
     padding: 5px 10px;
-    background-color: #ccc;
+    background-color: #d37c7c;
     border: none;
     cursor: pointer;
+    border-radius: 8px;
  }
  
 

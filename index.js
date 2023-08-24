@@ -64,42 +64,46 @@ function closeAddCardPopup() {
       for(let j=0; j<data[i].content.length; j++){
         const content = data[i].content[j]
         child += `
-              <li class="content ${content.done ? "checked done" : ""}" id="content_${content.id}">
-                <span>${content.contentText}</span>
-                <button class="toggle-button" onclick="toggleTask(${content.id}, ${data[i].id})" ${content.done ? "style='display:none;'" : ""}>
-                    Mark as Done
-                </button>
-              </li>`;
-
-
+        <li class="content ${content.done ? "checked done" : ""}" id="content_${content.id}">
+           <span>${content.contentText}</span>
+           <button class="toggle-button" onclick="toggleTask(${content.id}, ${data[i].id})" ${content.done ? "style='display:none;'" : ""}>
+              Mark as Done
+           </button>
+        </li>`;
         
       }
       ulElement.innerHTML= child
     }
   }
 
+  function toggleButton(buttonElement) {
+    buttonElement.style.display = buttonElement.style.display === "none" ? "inline-block" : "none";
+ }
+
   function toggleTask(contentId, cardId) {
     const contentElement = document.getElementById(`content_${contentId}`);
     const buttonElement = contentElement.querySelector(".toggle-button");
-    
+ 
     contentElement.classList.toggle("checked");
-    contentElement.classList.toggle("done"); // Toggle the done class
-    
-    toggleButton(buttonElement); // Show/hide button
-    
+    contentElement.classList.toggle("done"); 
+ 
+    toggleButton(buttonElement); 
+ 
     for (let i = 0; i < data.length; i++) {
        if (data[i].id == cardId) {
           const content = data[i].content.find(item => item.id === contentId);
           if (content) {
              content.done = !content.done;
+ 
+             // Hide button if content is done
+             if (content.done) {
+                buttonElement.style.display = "none";
+             }
           }
        }
     }
  }
  
- function toggleButton(buttonElement) {
-    buttonElement.style.display = buttonElement.style.display === "none" ? "inline-block" : "none";
- }
  
  
  
@@ -171,14 +175,15 @@ function closeAddCardPopup() {
       Ul.appendChild(liNode);
       removeAddContentToCardPopup()
 
-      liNode.addEventListener("click", function() {
-        if ( liNode.style.textDecoration === "line-through") {
-       liNode.style.textDecoration = "none";
-         } 
-     else {
-      liNode.style.textDecoration = "line-through";
-       }
-     });
+    //   liNode.addEventListener("click", function() {
+    //     if (liNode.style.textDecoration === "line-through") {
+    //        liNode.style.textDecoration = "none";
+    //     } else {
+    //        liNode.style.textDecoration = "line-through";
+    //     }
+    //  });
+    //  ;
+     
    
      for(let i=0; i<data.length; i++){
       if(data[i].id == cardId){
@@ -194,20 +199,20 @@ function closeAddCardPopup() {
   }
     }
 
-  function doneTask(listId, cardId){
-    const contentId= `content_${listId}`;
-    const liElement = document.getElementById(contentId);
-    liElement.classList.toggle("checked")
-
-    for(let i=0; i<data.length; i++){
-      for(let j=0; j<data[i].content.length; j++){
-        const content=data[i].content[j]
-        if(content.id ==listId  ){
-          data[i].content[j].done = !data[i].content[j].done;
-        }
+    function doneTask(listId, cardId) {
+      const contentId = `content_${listId}`;
+      const liElement = document.getElementById(contentId);
+   
+      for (let i = 0; i < data.length; i++) {
+         for (let j = 0; j < data[i].content.length; j++) {
+            const content = data[i].content[j];
+            if (content.id == listId) {
+               data[i].content[j].done = !data[i].content[j].done;
+            }
+         }
       }
-    }
-  }
+   }
+   
 
  function displayCard(id, value){
   const cardcontainer = document.getElementById("card-container");
