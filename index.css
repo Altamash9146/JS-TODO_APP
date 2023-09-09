@@ -113,19 +113,38 @@ a{
      overflow-y: scroll;
 }
 
+.content-head{
+   word-break: break-all;
+}
+
+.content{
+    word-break: break-all;
+}
+
+.card-content {
+    /* position: relative;
+    padding-bottom: 40px; */
+      flex-grow: 1;
+  position: relative;
+  padding-bottom: 40px;
+  }
 
 .item-content-buttons{
-    display: flex;
-    position: absolute; top: 220px;
-    justify-content: space-between;
+    /* padding-bottom: 0;
+    margin-bottom: 0; Push the buttons to the bottom */
+    text-align: right; /* Align buttons to the right */
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
 }
 
     .delete-item-content{
         background-image: url(./WhatsApp\ Image\ 2023-03-30\ at\ 17.00.21.jpeg);
         background-repeat: no-repeat;
         background-size: contain;
-        height: 20px; width:20px;
-        position: relative; left: 160px;
+        height: 20px;
+        width: 20px;
+        margin-right: 5px;
     }
 
     .add-item-content{
@@ -133,7 +152,6 @@ a{
         background-repeat: no-repeat;
         background-size: contain;
         height: 20px; width:20px;
-        position: relative; left: 180px;
     }
 
 .checked {
@@ -168,16 +186,22 @@ position: absolute; top: 25px;
     filter: blur(5px);
   }
 
+  .body2{
+    display: none;
+  }
+
 @media screen and (min-width:240px) and (max-width:600px) {
+
+    #h1{
+        position: absolute;
+        width: 100%;
+        left: -71px;
+        top: -10px;
+    }
 
     #first-button-set{
         position: absolute;
-    }
-
-    #h1{
-        position: relative;
-        left: -71px;
-        top: -10px;
+        top: 23px;
     }
 
     #add-new-list-border,#add-new-item-border{
@@ -186,10 +210,10 @@ position: absolute; top: 25px;
     }
 
     #card-container{
+        flex-direction: column;
         align-items: center;
-        flex-wrap:nowrap;
-        flex-direction: column; 
-        margin: auto;
+        margin-left: 0;
+        flex-wrap: nowrap;
     }
-    
+
  }
