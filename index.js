@@ -69,7 +69,9 @@ function closeAddCardPopup() {
            <button class="toggle-button" onclick="toggleTask(${content.id}, ${data[i].id})" ${content.done ? "style='display:none;'" : ""}>
               Marked Done
            </button>
-        </li>`;
+        </li>
+        
+        `;
         
       }
       ulElement.innerHTML= child

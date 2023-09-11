@@ -2,6 +2,7 @@ body{
     background-color: black;
 }
 
+
 a{
     text-decoration: none;
     color: black;
@@ -110,11 +111,28 @@ a{
      width: 250px;
      height: 250px;
      text-align: center;
-     overflow-y: scroll;
+     /* overflow-y: scroll; */
 }
 
 .content-head{
-   word-break: break-all;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    /* word-break: break-all; */
+    /* overflow: hidden; */
+    padding-left: 10px;
+    padding-right: 10px;
+    overflow-x: scroll;
+    cursor: pointer;
+}
+
+.content-head::-webkit-scrollbar {
+    background-color: transparent; 
+    height: 3px;
+}
+
+.content-head::-webkit-scrollbar-thumb {
+    background-color:lightslategray; 
 }
 
 .content{
@@ -130,12 +148,20 @@ a{
   }
 
 .item-content-buttons{
-    /* padding-bottom: 0;
-    margin-bottom: 0; Push the buttons to the bottom */
-    text-align: right; /* Align buttons to the right */
-    position: absolute;
-    right: 5px;
-    bottom: 5px;
+        /* text-align: center; */
+    /* text-align: right; */
+    /* padding-right: 16px; */
+    /* margin-bottom: 5px; */
+    /* padding-bottom: 0px; */
+    margin-top: -5px;
+    display: flex;
+    justify-content: center;
+    /* padding-left: 29px; */
+}
+
+ul{
+    height: 144px;
+    overflow-y: scroll;
 }
 
     .delete-item-content{
