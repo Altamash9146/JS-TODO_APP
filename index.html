@@ -22,17 +22,19 @@
       <div> <button id="back" onclick="MainPage()"> BACK </button></div>
    
       <div id="add-new-list-border">
-      <div id="add-new-list-heading">Add New list</div>
-      <hr>
-      <div>
-      <form>
-      <input type="text" placeholder="Add New List" id="input-of-add-list">
-      </form>
-      </div>
-      <div id="add-new-list-buttons">
-      <button id="add-button-of-list" style="background-color: white; border-radius: 3px;"  onclick="handleAddCard()">Add </button>
-      <button id="close-button-of-list"style="background-color: white; border-radius: 3px;"onclick="closeAddCardPopup()">Close</button>
-      </div>
+        <div id="add-new-list-heading">Add New list</div>
+        <hr>
+        <div>
+         
+            <form>
+                <input type="text" placeholder="Add New List" id="input-of-add-list" oninput="limitCharacterCount(this, 18)">
+              </form>
+        </div>
+        <div id="add-new-list-buttons">
+            <button id="add-button-of-list" style="background-color: white; border-radius: 3px;"  onclick="handleAddCard()">Add</button>
+            <button id="close-button-of-list" style="background-color: white; border-radius: 3px;" onclick="closeAddCardPopup()">Close</button>
+        </div>
+    </div>
       </div>
   
      <div id="body1">
@@ -45,7 +47,7 @@
       <div>
       <hr>
       <form>
-      <input type="text" placeholder="Add New Item" id="input-of-add-item">
+      <input type="text" placeholder="Add New Item" id="input-of-add-item" oninput="limitCharacterCount(this, 18)">
       </form>
       </div>
       <div id="add-new-item-buttons">

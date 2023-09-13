@@ -107,7 +107,12 @@ function closeAddCardPopup() {
  }
  
  
- 
+ function limitCharacterCount(input, maxLength) {
+  if (input.value.length > maxLength) {
+      input.value = input.value.slice(0, maxLength); // Truncate the input text
+      alert("Only 18 characters allowed.");
+  }
+}
  
 
 
